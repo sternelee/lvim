@@ -24,15 +24,6 @@ return {
         virtual_text = false,
       },
     },
-    keys = {
-      {
-        "]d",
-        function()
-          require("lsp_lines").toggle()
-        end,
-        desc = "Toggle lsp_lines",
-      },
-    },
   },
 
   {
