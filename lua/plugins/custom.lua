@@ -59,6 +59,7 @@ return {
     event = { "InsertEnter" },
     dependencies = {
       "onsails/lspkind.nvim",
+      "xzbdmw/colorful-menu.nvim",
       "petertriho/cmp-git",
       "hrsh7th/cmp-emoji",
       "hrsh7th/cmp-calc",
@@ -116,6 +117,14 @@ return {
           fields = { "kind", "abbr", "menu" },
           before = require("tailwind-tools.cmp").lspkind_format,
           format = function(entry, item)
+            local highlights_info = require("colorful-menu").cmp_highlights(entry)
+
+            -- if highlight_info==nil, which means missing ts parser, let's fallback to use default `vim_item.abbr`.
+            -- What this plugin offers is two fields: `vim_item.abbr_hl_group` and `vim_item.abbr`.
+            if highlights_info ~= nil then
+              item.abbr_hl_group = highlights_info.highlights
+              item.abbr = highlights_info.text
+            end
             local icons = LazyVim.config.icons.kinds
             if icons[item.kind] then
               item.kind = icons[item.kind] .. item.kind
@@ -169,6 +178,37 @@ return {
     opts = {},
   },
 
+  {
+    "max397574/better-escape.nvim",
+    event = "VeryLazy",
+    opts = {
+      default_mappings = false,
+      mappings = {
+        i = {
+          j = {
+            k = "<Esc>",
+            j = "<Esc>",
+          },
+        },
+        c = {
+          j = {
+            k = "<Esc>",
+            j = "<Esc>",
+          },
+        },
+        t = {
+          j = {
+            k = "<C-\\><C-n>",
+          },
+        },
+        s = {
+          j = {
+            k = "<Esc>",
+          },
+        },
+      },
+    },
+  },
   { "mg979/vim-visual-multi", event = "VeryLazy" },
   { "terryma/vim-expand-region", event = "VeryLazy" },
 

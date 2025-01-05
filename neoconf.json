@@ -1,0 +1,37 @@
+{
+  "lspconfig": {
+    "vtsls": {
+      "typescript.tsserver.nodePath": "/opt/homebrew/bin/tsserver",
+      "typescript.inlayHints.parameterNames.enabled": "all",
+      "javascript.inlayHints.parameterNames.enabled": "all",
+      "typescript.referencesCodeLens.enabled": true,
+      "vtsls.tsserver.globalPlugins": [
+        {
+          "name": "@styled/typescript-styled-plugin"
+        }
+      ]
+    },
+    "eslint": {
+      "eslint.format.enable": true,
+      "eslint.codeActionsOnSave.mode": "all"
+    },
+    "tailwindcss": {
+      "tailwindCSS.experimental.classRegex": [
+        "class=\\s+'([^']*)",
+        "tw`([^`]*)",
+        "tw='([^']*)",
+        "tw={'([^'}]*)",
+        "tw\\.\\w+`([^`]*)",
+        "tw\\(.*?\\)`([^`]*)"
+      ]
+    },
+    "lua_ls": {
+      "Lua.workspace.checkThirdParty": false,
+      "Lua.codeLens.enable": true,
+      "Lua.completion.callSnippet": "Replace",
+      "Lua.doc.privateName": [
+        "^_"
+      ]
+    }
+  }
+}
