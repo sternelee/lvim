@@ -59,6 +59,10 @@ map("n", "<leader>tw", "<cmd>Translate<CR>")
 map("n", "<leader>td", "<cmd>DiffviewOpen<CR>")
 map("n", "<leader>tD", "<cmd>DiffviewClose<CR>")
 
+-- toggleterm
+map("n", "<A-i>", "<cmd>ToggleTerm direction=float<CR>")
+map("t", "<A-i>", "<C-\\><C-n><cmd>ToggleTermToggleAll<CR>")
+
 -- menu
 keymap("n", "<RightMouse>", function()
   vim.cmd.exec('"normal! \\<RightMouse>"')

@@ -178,6 +178,8 @@ return {
     opts = {},
   },
 
+  { "akinsho/toggleterm.nvim", version = "*", config = true, event = "VeryLazy" },
+
   {
     "max397574/better-escape.nvim",
     event = "VeryLazy",
