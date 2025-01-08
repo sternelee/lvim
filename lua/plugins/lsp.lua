@@ -65,4 +65,26 @@ return {
       },
     },
   },
+
+  {
+    "dnlhc/glance.nvim",
+    event = { "LspAttach" },
+    config = function()
+      require("glance").setup()
+    end,
+  },
+  {
+    "aznhe21/actions-preview.nvim",
+    event = { "LspAttach" },
+    opts = {},
+    keys = {
+      {
+        "gm",
+        function()
+          require("actions-preview").code_actions()
+        end,
+        desc = "LSP action preview",
+      },
+    },
+  },
 }
