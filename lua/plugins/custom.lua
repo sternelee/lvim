@@ -35,7 +35,10 @@ return {
     dependencies = {
       "onsails/lspkind.nvim",
       "xzbdmw/colorful-menu.nvim",
-      "petertriho/cmp-git",
+      {
+        "petertriho/cmp-git",
+        opts = {},
+      },
       "hrsh7th/cmp-emoji",
       "hrsh7th/cmp-calc",
       "roginfarrer/cmp-css-variables",
@@ -51,9 +54,7 @@ return {
       vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
       local cmp = require("cmp")
       local defaults = require("cmp.config.default")()
-      local auto_select = true
-
-      require("cmp_git").setup()
+      local auto_select = false
 
       cmp.setup.cmdline({ "/", "?" }, {
         mapping = cmp.mapping.preset.cmdline(),
@@ -82,7 +83,9 @@ return {
           ["<C-b>"] = cmp.mapping.scroll_docs(-4),
           ["<C-f>"] = cmp.mapping.scroll_docs(4),
           ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+          ["<tab>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
           ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+          ["<S-tab>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
           ["<C-Space>"] = cmp.mapping.complete(),
           ["<CR>"] = LazyVim.cmp.confirm({ select = auto_select }),
           ["<C-y>"] = LazyVim.cmp.confirm({ select = true }),
@@ -91,9 +94,9 @@ return {
             cmp.abort()
             fallback()
           end,
-          ["<tab>"] = function(fallback)
-            return LazyVim.cmp.map({ "snippet_forward", "ai_accept" }, fallback)()
-          end,
+          -- ["<tab>"] = function(fallback)
+          --   return LazyVim.cmp.map({ "snippet_forward", "ai_accept" }, fallback)()
+          -- end,
         }),
         sources = cmp.config.sources({
           { name = "lazydev" },

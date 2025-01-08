@@ -8,6 +8,20 @@ return {
   { import = "lazyvim.plugins.extras.lsp.neoconf" },
   { import = "lazyvim.plugins.extras.linting.eslint" },
   {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        typos_lsp = {
+          cmd_env = { RUST_LOG = "info" },
+          init_options = {
+            diagnosticSeverity = "Info",
+          },
+        },
+      },
+    },
+  },
+
+  {
     "nvimdev/lspsaga.nvim",
     event = { "LspAttach" },
     opts = {
