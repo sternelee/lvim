@@ -5,24 +5,23 @@
 local keymap = vim.keymap.set
 local remap = vim.api.nvim_set_keymap
 
-local function map(mode, lhs, rhs)
-  local options = { noremap = true }
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
+local map = LazyVim.safe_keymap_set
 
-map("n", "P", '"0p')
-map("v", "P", '"0p')
+map("n", "P", "'0p")
+map("v", "P", "'0p")
 map("n", ";f", "<C-f>")
 map("n", ";b", "<C-b>")
 map("n", ";", ":") --semicolon to enter command mode
 map("n", "j", "gj") --move by visual line not actual line
 map("n", "k", "gk")
 map("n", "q", "<cmd>q<CR>")
-map("n", "gw", "<cmd>HopWord<CR>") --easymotion/hop
-map("n", "gl", "<cmd>HopLine<CR>")
-map("n", "g/", "<cmd>HopPattern<CR>")
 map("n", "<leader>:", "<cmd>terminal<CR>")
 remap("n", "<esc>", "<cmd>noh<CR><CR>", { noremap = true, silent = true })
+
+-- FzfLua
+map("n", "<leader>fs", "<cmd>FzfLua grep_cword<CR>")
+map("n", "<leader>fm", "<cmd>FzfLua git_status<CR>")
+map("n", "<leader>'", "<cmd>FzfLua resume<CR>")
 
 -- git
 map("n", "<leader>ga", "<cmd>Git add %:p<CR>")
@@ -46,12 +45,14 @@ map("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>")
 map("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
 map("n", "<leader>ts", "<cmd>Lspsaga outline<CR>")
 
-map("n", "<leader>ns", '<cmd>lua require("package-info").show()<CR>')
-map("n", "<leader>np", '<cmd>lua require("package-info").change_version()<CR>')
-map("n", "<leader>ni", '<cmd>lua require("package-info").install()<CR>')
+map("n", "<leader>ns", "<cmd>lua require('package-info').show()<CR>")
+map("n", "<leader>np", "<cmd>lua require('package-info').change_version()<CR>")
+map("n", "<leader>ni", "<cmd>lua require('package-info').install()<CR>")
 
-map("n", "<leader>ct", '<cmd>lua require("crates").toggle()<CR>')
-map("n", "<leader>cv", '<cmd>lua require("crates").show_versions_popup()<CR>')
+map("n", "<leader>ct", "<cmd>lua require('crates').toggle()<CR>")
+map("n", "<leader>cv", "<cmd>lua require('crates').show_versions_popup()<CR>")
+
+map("n", "<leader>m", "<cmd>ReachOpen marks<CR>")
 
 map("n", "<leader>tw", "<cmd>Translate<CR>")
 

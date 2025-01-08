@@ -4,6 +4,7 @@ return {
   { import = "lazyvim.plugins.extras.lang.markdown" },
   { import = "lazyvim.plugins.extras.lang.toml" },
   { import = "lazyvim.plugins.extras.lang.json" },
+  { import = "lazyvim.plugins.extras.lang.rust" },
   { import = "lazyvim.plugins.extras.lsp.neoconf" },
   { import = "lazyvim.plugins.extras.linting.eslint" },
   {
@@ -28,8 +29,6 @@ return {
 
   {
     "folke/trouble.nvim",
-    ft = "qf",
-    event = { "LspAttach" },
     opts = { use_diagnostic_signs = true },
   },
   {
@@ -65,23 +64,5 @@ return {
         desc = "Toggle lsp_lines",
       },
     },
-  },
-  {
-    "mrcjkb/rustaceanvim",
-    version = "^5", -- Recommended
-    lazy = false,
-    ft = { "rust" }, -- try pr2502/ra-multiplex
-    config = function()
-      vim.g.rustaceanvim = {
-        server = {
-          on_attach = function(client)
-            client.server_capabilities.semanticTokensProvider = nil
-            if vim.lsp.inlay_hint then
-              vim.lsp.inlay_hint.enable(true)
-            end
-          end,
-        },
-      }
-    end,
   },
 }

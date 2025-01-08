@@ -5,14 +5,13 @@
 return {
   { import = "lazyvim.plugins.extras.coding.mini-surround" },
   { import = "lazyvim.plugins.extras.editor.inc-rename" },
-  { import = "lazyvim.plugins.extras.editor.navic" },
+  -- { import = "lazyvim.plugins.extras.editor.navic" },
   { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
   { import = "lazyvim.plugins.extras.coding.mini-comment" },
   { import = "lazyvim.plugins.extras.coding.yanky" },
-  { import = "lazyvim.plugins.extras.editor.mini-diff" },
+  -- { import = "lazyvim.plugins.extras.editor.mini-diff" },
   { import = "lazyvim.plugins.extras.editor.mini-move" },
-  { import = "lazyvim.plugins.extras.ui.mini-animate" },
-  { import = "lazyvim.plugins.extras.ui.mini-starter" },
+  -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
 
   "pteroctopus/faster.nvim",
   {
@@ -31,10 +30,31 @@ return {
     },
   },
   {
-    "hrsh7th/cmp-cmdline",
-    event = { "CmdlineEnter" },
+    "hrsh7th/nvim-cmp",
+    event = { "InsertEnter", "CmdlineEnter" },
+    dependencies = {
+      "onsails/lspkind.nvim",
+      "xzbdmw/colorful-menu.nvim",
+      "petertriho/cmp-git",
+      "hrsh7th/cmp-emoji",
+      "hrsh7th/cmp-calc",
+      "roginfarrer/cmp-css-variables",
+      {
+        "luckasRanarison/tailwind-tools.nvim",
+        name = "tailwind-tools",
+        build = ":UpdateRemotePlugins",
+        opts = {},
+      },
+      "hrsh7th/cmp-cmdline",
+    },
     opts = function()
+      vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
       local cmp = require("cmp")
+      local defaults = require("cmp.config.default")()
+      local auto_select = true
+
+      require("cmp_git").setup()
+
       cmp.setup.cmdline({ "/", "?" }, {
         mapping = cmp.mapping.preset.cmdline(),
         sources = {
@@ -52,32 +72,6 @@ return {
           { name = "cmdline_history" },
         },
       })
-    end,
-  },
-  {
-    "hrsh7th/nvim-cmp",
-    event = { "InsertEnter" },
-    dependencies = {
-      "onsails/lspkind.nvim",
-      "xzbdmw/colorful-menu.nvim",
-      "petertriho/cmp-git",
-      "hrsh7th/cmp-emoji",
-      "hrsh7th/cmp-calc",
-      "roginfarrer/cmp-css-variables",
-      {
-        "luckasRanarison/tailwind-tools.nvim",
-        name = "tailwind-tools",
-        build = ":UpdateRemotePlugins",
-        opts = {},
-      },
-    },
-    opts = function()
-      vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
-      local cmp = require("cmp")
-      local defaults = require("cmp.config.default")()
-      local auto_select = true
-
-      require("cmp_git").setup()
       return {
         auto_brackets = {},
         completion = {
@@ -251,37 +245,30 @@ return {
     end,
   },
 
-  -- the opts function can also be used to change the default opts:
   {
-    "nvim-lualine/lualine.nvim",
+    "chentoast/marks.nvim",
     event = "VeryLazy",
+    dependencies = {
+      {
+        "toppair/reach.nvim",
+        config = function()
+          require("reach").setup({ notifications = true })
+        end,
+      },
+    },
     opts = {
-      sections = {
-        lualine_a = { "mode" },
-        lualine_b = {
-          "filename",
-          "filesize",
-        },
-        lualine_c = {
-          "diff",
-          "diagnostics",
-          "selectioncount",
-          "searchcount",
-          -- require("lsp-progress").progress
-        },
-        lualine_x = { "branch", "encoding", "fileformat", "filetype" },
-        lualine_y = { "progress" },
-        lualine_z = { "location" },
+      default_mappings = true,
+      builtin_marks = { ".", "<", ">", "^" },
+      cyclic = true,
+      force_write_shada = false,
+      refresh_interval = 250,
+      sign_priority = { lower = 10, upper = 15, builtin = 8, bookmark = 20 },
+      excluded_filetypes = {},
+      bookmark_0 = {
+        sign = "⚑",
+        virt_text = "sterne",
       },
-      inactive_sections = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = {},
-        lualine_x = { "location" },
-        lualine_y = {},
-        lualine_z = {},
-      },
-      extensions = { "quickfix", "fugitive" },
+      mappings = {},
     },
   },
 
@@ -292,4 +279,6 @@ return {
     build = "sh install.sh pnpm",
     config = true,
   },
+  { "ThePrimeagen/vim-be-good", cmd = "VimBeGood" },
+  { "wakatime/vim-wakatime", event = "VeryLazy" },
 }
