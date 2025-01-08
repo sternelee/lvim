@@ -8,6 +8,7 @@ return {
   -- { import = "lazyvim.plugins.extras.editor.navic" },
   { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
   { import = "lazyvim.plugins.extras.coding.mini-comment" },
+  { import = "lazyvim.plugins.extras.coding.mini-surround" },
   { import = "lazyvim.plugins.extras.coding.yanky" },
   -- { import = "lazyvim.plugins.extras.editor.mini-diff" },
   { import = "lazyvim.plugins.extras.editor.mini-move" },
