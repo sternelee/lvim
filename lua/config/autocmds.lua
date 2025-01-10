@@ -8,21 +8,21 @@
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 local cmd = vim.cmd
 
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = "*.toml",
-  callback = function()
-    require("cmp").setup.buffer({ sources = { { name = "crates" } } })
-  end,
-  desc = "Add cmp source for toml",
-})
-
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = "*.json",
-  callback = function()
-    require("cmp").setup.buffer({ sources = { { name = "npm", keyword_length = 3 } } })
-  end,
-  desc = "Add cmp source for json",
-})
+-- vim.api.nvim_create_autocmd({ "FileType" }, {
+--   pattern = "*.toml",
+--   callback = function()
+--     require("cmp").setup.buffer({ sources = { { name = "crates" } } })
+--   end,
+--   desc = "Add cmp source for toml",
+-- })
+--
+-- vim.api.nvim_create_autocmd({ "FileType" }, {
+--   pattern = "*.json",
+--   callback = function()
+--     require("cmp").setup.buffer({ sources = { { name = "npm", keyword_length = 3 } } })
+--   end,
+--   desc = "Add cmp source for json",
+-- })
 
 cmd([[autocmd BufWritePre * %s/\s\+$//e]]) --remove trailing whitespaces
 cmd([[autocmd BufWritePre * %s/\n\+\%$//e]])

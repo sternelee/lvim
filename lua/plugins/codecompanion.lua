@@ -1,7 +1,8 @@
 return {
   {
     "olimorris/codecompanion.nvim",
-    cmd = { "Codecompanion", "CodecompanionChat" },
+    -- cmd = { "Codecompanion", "CodecompanionChat" },
+    event = { "InsertEnter" },
     opts = {
       strategies = {
         chat = {
