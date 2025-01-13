@@ -18,10 +18,15 @@ map("n", "q", "<cmd>q<CR>")
 map("n", "<leader>:", "<cmd>terminal<CR>")
 remap("n", "<esc>", "<cmd>noh<CR><CR>", { noremap = true, silent = true })
 
+-- bufferline
+map("n", "<tab>", "<cmd>BufferLineCycleNext<CR>")
+map("n", "<S-tab>", "<cmd>BufferLineCycleNext<CR>")
+
 -- FzfLua
 map("n", "<leader>fw", "<cmd>FzfLua grep_cword<CR>")
 map("n", "<leader>fm", "<cmd>FzfLua git_status<CR>")
 map("n", "<leader>'", "<cmd>FzfLua resume<CR>")
+map("n", "<C-p>", "<cmd>FzfLua files<CR>")
 
 -- git
 map("n", "<leader>ga", "<cmd>Git add %:p<CR>")

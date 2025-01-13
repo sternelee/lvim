@@ -3,6 +3,7 @@
   "SchemaStore.nvim": { "branch": "main", "commit": "7de878c943c130ff0378bf0e9b67cee8bb53731b" },
   "actions-preview.nvim": { "branch": "master", "commit": "9f52a01c374318e91337697ebed51c6fae57f8a4" },
   "avante.nvim": { "branch": "main", "commit": "e14eb002d5839387a9b58e9a7ebc0a2047d1c1e5" },
+  "barbar.nvim": { "branch": "master", "commit": "40c176c9af7e9aefe3af9ec9d985a3edb50d66a3" },
   "better-escape.nvim": { "branch": "master", "commit": "199dcc2643dec5d8dbdab4ec672cf405224dcb3b" },
   "blink.cmp": { "branch": "main", "commit": "1cc3b1a908fbcfd15451c4772759549724f38524" },
   "blink.compat": { "branch": "main", "commit": "5ca8848c8cc32abdc980e5db4f0eb7bb8fbf84dc" },
