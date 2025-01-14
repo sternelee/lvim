@@ -36,25 +36,6 @@ map("n", "<leader>gl", "<cmd>Git pull<CR>")
 map("n", "<leader>gu", "<cmd>Git push<CR>")
 map("n", "<leader>gr", "<cmd>Git reset --hard<CR>")
 
-map("n", "ga", "<cmd>Lspsaga code_action<CR>")
-map("x", "gA", "<cmd>Lspsaga range_code_action<CR>")
-map("n", "K", "<cmd>Lspsaga hover_doc<CR>")
--- map("n", "gn", "<cmd>Lspsaga rename<CR>")
--- map("n", "gt", "<cmd>Lspsaga peek_type_definition<CR>")
--- map("n", "gi", "<cmd>Lspsaga finder<CR>")
-map("n", "gC", "<cmd>Lspsaga show_cursor_diagnostics<CR>")
--- map("n", "ge", "<cmd>Lspsaga show_line_diagnostics<CR>")
-map("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>")
-map("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
-map("n", "<leader>ts", "<cmd>Lspsaga outline<CR>")
-
-map("n", "<leader>ns", "<cmd>lua require('package-info').show()<CR>")
-map("n", "<leader>np", "<cmd>lua require('package-info').change_version()<CR>")
-map("n", "<leader>ni", "<cmd>lua require('package-info').install()<CR>")
-
-map("n", "<leader>ct", "<cmd>lua require('crates').toggle()<CR>")
-map("n", "<leader>cv", "<cmd>lua require('crates').show_versions_popup()<CR>")
-
 map("n", "<leader>m", "<cmd>ReachOpen marks<CR>")
 
 map("n", "<leader>tw", "<cmd>Translate<CR>")

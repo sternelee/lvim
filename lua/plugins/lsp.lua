@@ -24,19 +24,56 @@ return {
   {
     "nvimdev/lspsaga.nvim",
     event = { "LspAttach" },
-    opts = {
-      ui = {
-        border = "rounded",
+    config = function()
+      require("lspsaga").setup({
+        ui = {
+          border = "rounded",
+        },
+        finder = {
+          silent = true,
+        },
+        symbol_in_winbar = {
+          enable = false,
+        },
+        lightbulb = {
+          sign = false,
+          virtual_text = false,
+        },
+      })
+      LazyVim.lsp.on_attach(function(client, buffer)
+        client.server_capabilities.semanticTokensProvider = nil
+      end)
+    end,
+    keys = {
+      {
+        "ga",
+        "<cmd>Lspsaga code_action<CR>",
+        desc = "Lspsaga code action",
       },
-      finder = {
-        silent = true,
+      {
+        "gA",
+        "<cmd>Lspsaga range_code_action<CR>",
+        desc = "Lspsaga range code action",
       },
-      symbol_in_winbar = {
-        enable = false,
+      {
+        "K",
+        "<cmd>Lspsaga hover_doc<CR>",
+        desc = "Lspsaga hover doc",
       },
-      lightbulb = {
-        sign = false,
-        virtual_text = false,
+      {
+        "]d",
+        "<cmd>Lspsaga diagnostic_jump_next<CR>",
+        desc = "Lspsaga diagnostic_jump_next",
+      },
+      {
+        "[d",
+        "<cmd>Lspsaga diagnostic_jump_prev<CR>",
+        desc = "Lspsaga diagnostic_jump_prev",
+      },
+      {
+        "<leader>ts",
+        "<cmd>Lspsaga outline<CR>",
+        desc = "Lspsaga outline",
       },
     },
   },
@@ -83,9 +120,7 @@ return {
   {
     "dnlhc/glance.nvim",
     event = { "LspAttach" },
-    config = function()
-      require("glance").setup()
-    end,
+    opts = {},
   },
   {
     "aznhe21/actions-preview.nvim",
