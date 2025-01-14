@@ -7,76 +7,73 @@ return {
   { import = "lazyvim.plugins.extras.lang.rust" },
   { import = "lazyvim.plugins.extras.lsp.neoconf" },
   { import = "lazyvim.plugins.extras.linting.eslint" },
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        typos_lsp = {
-          cmd_env = { RUST_LOG = "info" },
-          init_options = {
-            diagnosticSeverity = "Info",
-          },
-        },
-      },
-    },
-  },
 
-  {
-    "nvimdev/lspsaga.nvim",
-    event = { "LspAttach" },
-    config = function()
-      require("lspsaga").setup({
-        ui = {
-          border = "rounded",
-        },
-        finder = {
-          silent = true,
-        },
-        symbol_in_winbar = {
-          enable = false,
-        },
-        lightbulb = {
-          sign = false,
-          virtual_text = false,
-        },
-      })
-      LazyVim.lsp.on_attach(function(client, buffer)
-        client.server_capabilities.semanticTokensProvider = nil
-      end)
-    end,
-    keys = {
-      {
-        "ga",
-        "<cmd>Lspsaga code_action<CR>",
-        desc = "Lspsaga code action",
-      },
-      {
-        "gA",
-        "<cmd>Lspsaga range_code_action<CR>",
-        desc = "Lspsaga range code action",
-      },
-      {
-        "K",
-        "<cmd>Lspsaga hover_doc<CR>",
-        desc = "Lspsaga hover doc",
-      },
-      {
-        "]d",
-        "<cmd>Lspsaga diagnostic_jump_next<CR>",
-        desc = "Lspsaga diagnostic_jump_next",
-      },
-      {
-        "[d",
-        "<cmd>Lspsaga diagnostic_jump_prev<CR>",
-        desc = "Lspsaga diagnostic_jump_prev",
-      },
-      {
-        "<leader>ts",
-        "<cmd>Lspsaga outline<CR>",
-        desc = "Lspsaga outline",
-      },
-    },
-  },
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   opts = function()
+  --     local keys = require("lazyvim.plugins.lsp.keymaps").get()
+  --     -- keys[#keys + 1] = { "K", false }
+  --     keys[#keys + 1] = { "[d", false }
+  --     keys[#keys + 1] = { "]d", false }
+  --   end,
+  -- },
+
+  -- {
+  --   "nvimdev/lspsaga.nvim",
+  --   event = { "LspAttach" },
+  --   config = function()
+  --     require("lspsaga").setup({
+  --       ui = {
+  --         border = "rounded",
+  --       },
+  --       finder = {
+  --         silent = true,
+  --       },
+  --       symbol_in_winbar = {
+  --         enable = false,
+  --       },
+  --       lightbulb = {
+  --         sign = false,
+  --         virtual_text = false,
+  --       },
+  --     })
+  --     -- LazyVim.lsp.on_attach(function(client, buffer)
+  --     --   client.server_capabilities.semanticTokensProvider = nil
+  --     -- end)
+  --   end,
+  --   -- keys = {
+  --   --   {
+  --   --     "ga",
+  --   --     "<cmd>Lspsaga code_action<CR>",
+  --   --     desc = "Lspsaga code action",
+  --   --   },
+  --   --   {
+  --   --     "gA",
+  --   --     "<cmd>Lspsaga range_code_action<CR>",
+  --   --     desc = "Lspsaga range code action",
+  --   --   },
+  --   --   {
+  --   --     "K",
+  --   --     "<cmd>Lspsaga hover_doc<CR>",
+  --   --     desc = "Lspsaga hover doc",
+  --   --   },
+  --   --   {
+  --   --     "]d",
+  --   --     "<cmd>Lspsaga diagnostic_jump_next<CR>",
+  --   --     desc = "Lspsaga diagnostic_jump_next",
+  --   --   },
+  --   --   {
+  --   --     "[d",
+  --   --     "<cmd>Lspsaga diagnostic_jump_prev<CR>",
+  --   --     desc = "Lspsaga diagnostic_jump_prev",
+  --   --   },
+  --   --   {
+  --   --     "<leader>ts",
+  --   --     "<cmd>Lspsaga outline<CR>",
+  --   --     desc = "Lspsaga outline",
+  --   --   },
+  --   -- },
+  -- },
 
   {
     "folke/trouble.nvim",

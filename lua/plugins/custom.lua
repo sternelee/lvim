@@ -286,18 +286,18 @@ return {
     "Saecki/crates.nvim",
     event = "BufRead Cargo.toml",
     config = true,
-    keys = {
-      {
-        "<leader>ct",
-        "<cmd>lua require('creates').toggle()<CR>",
-        desc = "creates toggle",
-      },
-      {
-        "<leader>cv",
-        "<cmd>lua require('creates').show_versions_popup()<CR>",
-        desc = "creates show version",
-      },
-    },
+    -- keys = {
+    --   {
+    --     "<leader>ct",
+    --     "<cmd>lua require('creates').toggle()<CR>",
+    --     desc = "creates toggle",
+    --   },
+    --   {
+    --     "<leader>cv",
+    --     "<cmd>lua require('creates').show_versions_popup()<CR>",
+    --     desc = "creates show version",
+    --   },
+    -- },
   },
   {
     "David-Kunz/cmp-npm",
@@ -310,23 +310,23 @@ return {
     config = function()
       require("package-info").setup({ package_manager = "pnpm" })
     end,
-    keys = {
-      {
-        "<leader>ns",
-        "<cmd>lua require('package-info').show()<CR>",
-        desc = "package-info show",
-      },
-      {
-        "<leader>np",
-        "<cmd>lua require('package-info').change_version()<CR>",
-        desc = "package-info change version",
-      },
-      {
-        "<leader>ni",
-        "<cmd>lua require('package-info').install()<CR>",
-        desc = "package-info install",
-      },
-    },
+    -- keys = {
+    --   {
+    --     "<leader>ns",
+    --     "<cmd>lua require('package-info').show()<CR>",
+    --     desc = "package-info show",
+    --   },
+    --   {
+    --     "<leader>np",
+    --     "<cmd>lua require('package-info').change_version()<CR>",
+    --     desc = "package-info change version",
+    --   },
+    --   {
+    --     "<leader>ni",
+    --     "<cmd>lua require('package-info').install()<CR>",
+    --     desc = "package-info install",
+    --   },
+    -- },
   },
   -- { "lervag/vimtex",          ft = "tex" },
   {
