@@ -30,6 +30,21 @@ return {
       colorscheme = "solarized-osaka",
     },
   },
+  {
+    "folke/snacks.nvim",
+    opts = {
+      picker = {},
+    },
+    keys = {
+      {
+        "<leader>'",
+        function()
+          Snacks.picker.resume()
+        end,
+        desc = "Resume",
+      },
+    },
+  },
 
   -- {
   --   "hrsh7th/nvim-cmp",
@@ -166,7 +181,6 @@ return {
     opts = {
       completion = {
         accept = {
-          -- experimental auto-brackets support
           auto_brackets = {
             enabled = true,
           },
@@ -191,7 +205,8 @@ return {
           auto_show_delay_ms = 200,
         },
         ghost_text = {
-          enabled = vim.g.ai_cmp,
+          -- enabled = vim.g.ai_cmp,
+          enabled = false,
         },
       },
       sources = {

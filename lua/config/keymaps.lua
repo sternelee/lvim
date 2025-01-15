@@ -23,12 +23,6 @@ map("n", "<tab>", "<cmd>BufferLineCycleNext<CR>")
 map("n", "<S-tab>", "<cmd>BufferLineCycleNext<CR>")
 map("n", "<S-q>", "<cmd>BufferLineCloseLeft<CR>")
 
--- FzfLua
-map("n", "<leader>fw", "<cmd>FzfLua grep_cword<CR>")
-map("n", "<leader>fm", "<cmd>FzfLua git_status<CR>")
-map("n", "<leader>'", "<cmd>FzfLua resume<CR>")
-map("n", "<C-p>", "<cmd>FzfLua files<CR>")
-
 -- git
 map("n", "<leader>ga", "<cmd>Git add %:p<CR>")
 map("n", "<leader>go", "<cmd>Git add .<CR>")
