@@ -26,3 +26,5 @@ local cmd = vim.cmd
 
 cmd([[autocmd BufWritePre * %s/\s\+$//e]]) --remove trailing whitespaces
 cmd([[autocmd BufWritePre * %s/\n\+\%$//e]])
+
+vim.api.nvim_create_user_command("AutoEslintFix", 'lua require("config.autofix-eslint").toggle_eslint_on_save()', {})
