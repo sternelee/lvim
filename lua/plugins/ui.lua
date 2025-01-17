@@ -2,6 +2,11 @@ return {
   { import = "lazyvim.plugins.extras.ui.smear-cursor" },
 
   {
+    "akinsho/bufferline.nvim",
+    enabled = false,
+  },
+
+  {
     "snacks.nvim",
     opts = {
       dashboard = {

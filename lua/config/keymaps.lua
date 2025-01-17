@@ -19,9 +19,9 @@ map("n", "<leader>:", "<cmd>terminal<CR>")
 remap("n", "<esc>", "<cmd>noh<CR><CR>", { noremap = true, silent = true })
 
 -- bufferline
-map("n", "<tab>", "<cmd>BufferLineCycleNext<CR>")
-map("n", "<S-tab>", "<cmd>BufferLineCycleNext<CR>")
-map("n", "<S-q>", "<cmd>BufferLineCloseLeft<CR>")
+-- map("n", "<tab>", "<cmd>BufferLineCycleNext<CR>")
+-- map("n", "<S-tab>", "<cmd>BufferLineCycleNext<CR>")
+-- map("n", "<S-q>", "<cmd>BufferLineCloseLeft<CR>")
 
 -- git
 map("n", "<leader>ga", "<cmd>Git add %:p<CR>")
