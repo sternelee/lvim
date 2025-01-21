@@ -355,6 +355,7 @@ return {
   {
     "max397574/better-escape.nvim",
     event = "VeryLazy",
+    vscode = true,
     opts = {
       default_mappings = false,
       mappings = {
@@ -384,7 +385,7 @@ return {
     },
   },
   { "mg979/vim-visual-multi", event = "VeryLazy" },
-  { "terryma/vim-expand-region", event = "VeryLazy" },
+  { "terryma/vim-expand-region", event = "VeryLazy", vscode = true },
 
   -- add more treesitter parsers
   {
