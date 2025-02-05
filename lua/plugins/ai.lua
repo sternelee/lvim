@@ -77,29 +77,23 @@ return {
         },
         provider = "openai",
         vendors = {
-          groq = {
-            __inherited_from = "openai",
-            api_key_name = "GROQ_API_KEY",
-            endpoint = "https://api.groq.com/openai/v1",
-            model = "llama-3.1-70b-versatile",
-          },
-          xai = {
-            __inherited_from = "openai",
-            api_key_name = "XAI_API_KEY",
-            endpoint = "https://api.x.ai/v1",
-            model = "grok-2-1212",
-          },
-          codestral = {
-            __inherited_from = "openai",
-            api_key_name = "CODESTRAL_API_KEY",
-            endpoint = "https://codestral.mistral.ai/v1",
-            model = "codestral-latest",
-          },
+          -- groq = {
+          --   __inherited_from = "openai",
+          --   api_key_name = "GROQ_API_KEY",
+          --   endpoint = "https://api.groq.com/openai/v1",
+          --   model = "llama-3.1-70b-versatile",
+          -- },
+          -- codestral = {
+          --   __inherited_from = "openai",
+          --   api_key_name = "CODESTRAL_API_KEY",
+          --   endpoint = "https://codestral.mistral.ai/v1",
+          --   model = "codestral-latest",
+          -- },
           deepseek = {
             __inherited_from = "openai",
             api_key_name = "DEEPSEEK_API_KEY",
             endpoint = "https://api.deepseek.com",
-            model = "deepseek-coder",
+            model = "deepseek-chat",
           },
           siliconflow = {
             __inherited_from = "openai",
@@ -170,7 +164,6 @@ return {
       adapters = {
         openai = function()
           return require("codecompanion.adapters").extend("openai", {
-
             url = "https://openrouter.ai/api/v1/chat/completions",
             env = {
               api_key = "OPENROUTER_API_KEY",
@@ -188,19 +181,6 @@ return {
                   "qwen/qwq-32b-preview",
                   "eva-unit-01/eva-qwen-2.5-72b",
                   "google/gemini-2.0-flash-thinking-exp:free",
-                },
-              },
-            },
-          })
-        end,
-        xai = function()
-          return require("codecompanion.adapters").extend("xai", {
-            schema = {
-              model = {
-                default = "grok-2-1212",
-                choices = {
-                  "grok-beta",
-                  "grok-2-1212",
                 },
               },
             },

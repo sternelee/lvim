@@ -2,11 +2,6 @@ return {
   -- { import = "lazyvim.plugins.extras.ui.smear-cursor" },
 
   {
-    "bufferline.nvim",
-    enabled = false,
-  },
-
-  {
     "snacks.nvim",
     opts = {
       dashboard = {
@@ -56,9 +51,8 @@ return {
   {
     "folke/noice.nvim",
     event = "VeryLazy",
-    enabled = false,
+    enabled = true,
     opts = {
-
       smart_move = {
         enabled = true,
         excluded_filetypes = { "cmp_menu", "cmp_docs", "notify" },
@@ -83,6 +77,7 @@ return {
   {
     "gelguy/wilder.nvim",
     event = "VeryLazy",
+    enabled = false,
     config = function()
       local wilder = require("wilder")
       local gradient = {
@@ -152,10 +147,10 @@ return {
     cmd = { "Shades", "Huefy" },
     opts = { huefy = { border = false } },
   },
-  -- {
-  --   "nvchad/menu",
-  --   lazy = true,
-  -- },
+  {
+    "nvchad/menu",
+    lazy = true,
+  },
   { "nvchad/showkeys", cmd = "ShowkeysToggle" },
   { "nvchad/timerly", cmd = "TimerlyToggle" },
 }

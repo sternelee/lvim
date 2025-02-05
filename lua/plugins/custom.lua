@@ -231,16 +231,16 @@ return {
           "avante_mentions",
           "avante_files",
         },
-        -- cmdline = function()
-        --   local type = vim.fn.getcmdtype()
-        --   if type == "/" or type == "?" then
-        --     return { "buffer" }
-        --   end
-        --   if type == ":" or type == "@" then
-        --     return { "cmdline" }
-        --   end
-        --   return {}
-        -- end,
+        cmdline = function()
+          local type = vim.fn.getcmdtype()
+          if type == "/" or type == "?" then
+            return { "buffer" }
+          end
+          if type == ":" or type == "@" then
+            return { "cmdline" }
+          end
+          return {}
+        end,
         providers = {
           lazydev = {
             name = "LazyDev",
