@@ -51,7 +51,7 @@ return {
   {
     "folke/noice.nvim",
     event = "VeryLazy",
-    enabled = true,
+    enabled = false,
     opts = {
       smart_move = {
         enabled = true,
@@ -77,7 +77,7 @@ return {
   {
     "gelguy/wilder.nvim",
     event = "VeryLazy",
-    enabled = false,
+    enabled = true,
     config = function()
       local wilder = require("wilder")
       local gradient = {
